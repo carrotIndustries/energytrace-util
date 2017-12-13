@@ -14,7 +14,7 @@ debugging control and programming the library also gives access to the
 EnergyTrace feature. So I wrote a small program based on an example 
 that reads the EnergyTrace measurements.
 
-#Output Format
+# Output Format
 Data is written to stdout in 4 columns:
 
  1. Time in seconds
@@ -27,7 +27,7 @@ gnuplot and the like. For some reason, differentiating and low-pass
 filtering the energy measurements leads to more accurate readings than 
 the current measurement itself.
 
-#Dependencies
+# Dependencies
 You'll need MSP430 debug stack (libmsp430.so) and the usual 
 things like make and gcc. Unfortunately, building the MSP430 debug 
 stack is a bit difficult at this time since it's missing some 
@@ -37,14 +37,14 @@ Using Arch Linux? You're lucky, I've created a PKGBUILD and patches for
 easy installation: [aur-mspds](https://github.com/carrotIndustries/aur-mspds)
 At the time of writing, the AUR package mspds is broken.
 
-#How do I build and run?
+# How do I build and run?
 ```
 $ make
 $ ./et <measurement duration in seconds> > et.log
 ```
 Use you favourite tool for visualizing and processing the recorded data.
 
-#Conclusion
+# Conclusion
 EnergyTrace comes in really handy for measuring the power consumption of 
 MCUs as it saves you from fiddling with current shunts, differential 
 amplifiers and oscilloscopes.
