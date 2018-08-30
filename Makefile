@@ -1,4 +1,4 @@
-TARGET=et
+TARGET=energytrace
 SRC = $(TARGET).c
 
 CFLAGS = -I/usr/include/libmsp430 -lmsp430
@@ -7,10 +7,12 @@ all: $(TARGET)
 $(TARGET): $(SRC) 
 	gcc $(CFLAGS) -o $@ $<
 clean:
-	rm -f et
+	rm -f $(TARGET)
 
 run: all
-	./et 5
+	./energytrace 5
 
 install: all
-	cp et /usr/local/bin/
+	install -t /usr/local/bin $(TARGET)
+
+

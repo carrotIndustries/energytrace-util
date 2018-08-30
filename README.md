@@ -40,9 +40,28 @@ At the time of writing, the AUR package mspds is broken.
 # How do I build and run?
 ```
 $ make
-$ ./et <measurement duration in seconds> > et.log
+$ ./energytrace <measurement duration in seconds> > energytrace.log
 ```
+
 Use you favourite tool for visualizing and processing the recorded data.
+
+```
+$ gnuplot
+
+        G N U P L O T
+        Version 5.2 patchlevel 2    last modified 2017-11-01 
+
+        Copyright (C) 1986-1993, 1998, 2004, 2007-2017
+        Thomas Williams, Colin Kelley and many others
+
+        gnuplot home:     http://www.gnuplot.info
+        faq, bugs, etc:   type "help FAQ"
+        immediate help:   type "help"  (plot window: hit 'h')
+
+Terminal type is now 'qt'
+gnuplot> plot "energytrace.log" 
+gnuplot> 
+```
 
 # Conclusion
 EnergyTrace comes in really handy for measuring the power consumption of 
@@ -52,4 +71,4 @@ Event when you're just using EnergyTrace, the MSP430FR4133 LaunchPad is
 pretty good value at $14.
 
 This little program has proven to be useful during the development of 
-[pluto](https://github.com/carrotIndustries/pluto)
+[pluto](https://github.com/carrotIndustries/pluto).
