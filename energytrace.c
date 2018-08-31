@@ -66,17 +66,23 @@ int main(int argc, char *argv[]) {
 	}
 
 	//status = MSP430_Configure(ET_CURRENTDRIVE_FINE, 1);
-	printf("#MSP430_Configure(ET_CURRENTDRIVE_FINE, 1) =%d\n", status);
+	//printf("#MSP430_Configure(ET_CURRENTDRIVE_FINE, 1) =%d\n", status);
 
 	// 2. Set the device Vcc.
 	printf("#Setting the device Vcc: ");
 	status = MSP430_VCC(vcc);
 	printf("#MSP430_VCC(%d) returns %d\n", vcc, status);
 
+
 	// 3. Open the device.
+	MSP430_LoadDeviceDb(NULL); //Required in more recent versions of tilib.
 	printf("#Opening the device: ");
 	status = MSP430_OpenDevice("DEVICE_UNKNOWN", "", 0, 0, DEVICE_UNKNOWN);
 	printf("#MSP430_OpenDevice() returns %d\n", status);
+	if(status != STATUS_OK) {
+		return 1;
+	}
+
 	// 4. Get device information
 	status = MSP430_GetFoundDevice((char*)&device, sizeof(device.buffer));
 	printf("#MSP430_GetFoundDevice() returns %d\n", status);
